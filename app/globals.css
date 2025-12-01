@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-gradient-to-br from-primary-50 via-white to-accent-50 text-gray-900;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* Ensure body is always interactive */
+    pointer-events: auto !important;
+  }
+  
+  /* Ensure no invisible overlays block clicks */
+  html, body {
+    position: relative;
+    overflow-x: hidden;
+  }
+}
+
+/* ADHD-friendly animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Dyslexia-friendly font option */
+.font-dyslexia {
+  font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+}
+
+/* Large UI mode */
+.large-ui {
+  font-size: 1.25rem;
+}
+
+.large-ui button {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
+
+/* High contrast mode */
+.high-contrast {
+  @apply bg-white text-black;
+}
+
+.high-contrast button {
+  @apply bg-black text-white border-2 border-black;
+}
+
